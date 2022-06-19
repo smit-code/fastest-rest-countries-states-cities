@@ -1,4 +1,4 @@
-# CSC-country-state-city
+# CSC-countries-states-cities
 ---
 
 We provide a free database of city, state, and country data in JSON format. All countries, states, cities, and regions are covered and featured in multiple combinations and versions.
