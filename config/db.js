@@ -1,4 +1,3 @@
-
 const fastifyPlugin = require('fastify-plugin');
 
 async function dbConnect(fastify,option){
@@ -14,7 +13,6 @@ async function dbConnect(fastify,option){
     db.once('open',()=>{
         console.log("successfully connected to database..");
     })
-
 }
 
 module.exports = fastifyPlugin(dbConnect);
