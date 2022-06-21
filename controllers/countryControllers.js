@@ -10,15 +10,15 @@ exports.getCountries = (req, reply) => {
     }
 }
 
-exports.getCountry = (req, reply) => {
-    try {
-        const {id} = req.params;
-
-        const item = Country.find(id);
-
-        return reply.send(item);
-    } catch (e) {
-        console.log(e);
-    }
-
-}
+// exports.getCountry = (req, reply) => {
+//     try {
+//         const {id} = req.params;
+//
+//         const country = Country.find(id);
+//
+//         return reply.send(country);
+//     } catch (e) {
+//         console.log(e);
+//     }
+//
+// }

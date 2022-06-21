@@ -4,7 +4,7 @@ const {
 } = require('../controllers/countryControllers');
 
 // Item schema
-const getCountries = {
+const getCountriesOpts = {
     type: 'object',
     properties: {
         id: {type: 'string'},
@@ -14,24 +14,27 @@ const getCountries = {
 }
 
 // Options for get all items
-const getCountry = {
+const getCountryOpts = {
     schema: {
         response: {
             200: {
-                type: 'array',
-                items: Item,
+                type: 'object',
+                properties: {
+                    id: {type: 'string'},
+                    name: {type: 'string'},
+                }
             },
         },
     },
     handler: getCountry,
 }
 
-exports.countryRoutes = ((fastify, options, done)=>{
+exports.countryRoutes = ((fastify, options, done) => {
     // Get all items
-    fastify.get('/countries', getCountries);
+    fastify.get('/', getCountriesOpts);
 
     // Get single items
-    fastify.get('/countries/:id', getCountry);
+    fastify.get('/:id', getCountryOpts);
 
     done();
 });
