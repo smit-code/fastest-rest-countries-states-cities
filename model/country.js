@@ -3,9 +3,7 @@ const Schema = mongoose.Schema;
 
 const countrySchema = new Schema({
     id: {
-        $numberInt: {
-            type: Date
-        }
+       type:Number
     },
     name: {
         type: String
@@ -17,10 +15,10 @@ const countrySchema = new Schema({
         type: String
     },
     numeric_code: {
-        type: Date
+        type: String
     },
     phone_code: {
-        type: Date
+        type: String
     },
     capital: {
         type: String

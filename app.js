@@ -1,26 +1,45 @@
-const Fastify = require('fastify')
+const  Fastify = require('fastify');
+const fastifyEnv = require('@fastify/env');
 
 const fastify = Fastify({
     logger: true
-})
+});
 
-const PORT = process.env.PORT || 80;
+const fastifyEnv = require('fastify-env')
+const schema = {
+    type: 'object',
+    required: ['MONGO_URL'],
+    properties: {
+        MONGO_URL: {
+            type: 'string'
+        }
+    }
+}
 
-fastify.register(require('fastify-swagger'), {
-    exposeRoute: true,
-    routePrefix: '/docs',
-    swagger: {
-        info: { title: 'fastify-api' },
-    },
-})
+const options = {
+    confKey: 'config',
+    schema,
+    dotenv: true,
+    data: process.env
+}
 
-// Database initialize
-fastify.register(require('./config/db'));
+const initialize = async () => {
+    fastify.register(fastifyEnv, options)
+    await fastify.after()
 
+    // Database
+    // Connection URL
+    const username = encodeURIComponent(fastify.config.MONGO_URL);
+}
+
+initialize()
+
+fastify.register(require('./config/db'))
 // Declare a route
 fastify.register(require('./routes/index'));
 
+
 // Run the server!
-fastify.listen(PORT, (err, address) => {
+fastify.listen(3000, (err, address) => {
     if (err) throw err
 })
