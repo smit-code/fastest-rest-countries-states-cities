@@ -1,0 +1,24 @@
+{
+  "name": "csc-countries-states-cities",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smit-code/csc-countries-states-cities.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smit-code/csc-countries-states-cities/issues"
+  },
+  "homepage": "https://github.com/smit-code/csc-countries-states-cities#readme",
+  "dependencies": {
+    "fastify": "^4.0.3",
+    "fastify-plugin": "^3.0.1",
+    "mongoose": "^6.4.0"
+  }
+}
