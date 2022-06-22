@@ -1,10 +1,10 @@
-const stateController = require('../controllers/stateController');
+const {getStates,getState} = require('../controllers/stateController');
 
 async function routes (fastify,option) {
 
-    fastify.get('/',stateController.getStates);
+    fastify.get('/',getStates);
 
-    fastify.get('/:state',stateController.getState);
+    fastify.get('/:state',getState);
 
 }
 

@@ -1,6 +1,6 @@
-exports.helper = async (queryName, modelName) => {
+exports.helper = async (queryName, model) => {
 
-    let dbName = require(`../model/${modelName}`);
+    // let dbName = require(`../model/${modelName}`);
 
     // for country wise City
     const replaceWords = queryName.replace(/ /g, '%');
@@ -11,7 +11,7 @@ exports.helper = async (queryName, modelName) => {
     }
 
     const propertyName = words.join(" ");
-    const result = await dbName.findOne({name: propertyName});
+    const result = await model.findOne({name: propertyName});
 
     if (!result) {
         return {

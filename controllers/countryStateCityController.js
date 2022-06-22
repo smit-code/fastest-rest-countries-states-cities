@@ -16,7 +16,7 @@ exports.getCountryStatesCities = async (request,replay) => {
         // for country wise City
         const {helper} = require("../utils/findByNameHelper");
 
-        let data = await helper(queryCountry,'countryStateCity');
+        let data = await helper(queryCountry,CountryStateCity);
 
         return replay.send(data);
 
