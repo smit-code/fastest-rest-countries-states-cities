@@ -16,7 +16,7 @@ exports.getCountryStates = async (request,replay) => {
     try {
         const queryCountry = request.params.country;
         // for country wise states
-        let data = await helper(queryCountry,'countryState');
+        let data = await helper(queryCountry,CountryStates);
         return replay.send(data);
     } catch (error) {
         return replay.send(error)
