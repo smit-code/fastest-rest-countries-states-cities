@@ -3,17 +3,13 @@ const Schema = mongoose.Schema;
 
 const CitySchema = new Schema({
     id: {
-        $numberInt: {
-            type: Date
-        }
+        type: Number
     },
     name: {
         type: String
     },
     state_id: {
-        $numberInt: {
-            type: Date
-        }
+        type: Number
     },
     state_code: {
         type: String
@@ -22,9 +18,7 @@ const CitySchema = new Schema({
         type: String
     },
     country_id: {
-        $numberInt: {
-            type: Date
-        }
+        type: Number
     },
     country_code: {
         type: String
@@ -43,4 +37,4 @@ const CitySchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('City',CitySchema);
+module.exports = mongoose.model('City', CitySchema);

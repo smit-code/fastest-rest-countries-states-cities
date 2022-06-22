@@ -3,17 +3,13 @@ const Schema = mongoose.Schema;
 
 const StateSchema = new Schema({
     id: {
-        $numberInt: {
-            type: Date
-        }
+            type: Number
     },
     name: {
         type: String
     },
     country_id: {
-        $numberInt: {
-            type: Date
-        }
+            type: Number
     },
     country_code: {
         type: String
@@ -25,7 +21,7 @@ const StateSchema = new Schema({
         type: String
     },
     type: {
-        type: Mixed
+        type: String
     },
     latitude: {
         type: String

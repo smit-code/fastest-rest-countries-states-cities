@@ -10,7 +10,7 @@ async function dbConnect(fastify,option){
 
     db.on('error',console.error.bind(console,"failed to connect database"));
 
-    db.once('open',()=>{
+    db.once('open',() => {
         console.log("successfully connected to database..");
     })
 }
