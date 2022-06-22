@@ -1,45 +1,60 @@
-const  Fastify = require('fastify');
-const fastifyEnv = require('@fastify/env');
-
+require('dotenv').config();
+const Fastify = require('fastify');
 const fastify = Fastify({
     logger: true
 });
 
-const fastifyEnv = require('fastify-env')
-const schema = {
-    type: 'object',
-    required: ['MONGO_URL'],
-    properties: {
-        MONGO_URL: {
-            type: 'string'
-        }
-    }
-}
+// env configuration
+// const fastifyEnv = require('@fastify/env')
+// const schema = {
+//     type: 'object',
+//     properties: {
+//         MONGO_URL: {
+//             type: 'string'
+//         },
+//         PORT: {
+//             type: 'number'
+//         }
+//     },
+//     required: ['MONGO_URL', 'PORT']
+// }
+// const options = {
+//     dotenv: true,
+//     confKey: 'config',
+//     schema: schema,
+// }
+//
+// fastify.register(fastifyEnv, options).ready((err, data) => {
+// // Run the server!
+//     const PORT = process.env.PORT;
+//
+//     const start = async () => {
+//         try {
+//             await fastify.listen({port: PORT})
+//         } catch (err) {
+//             fastify.log.error(err)
+//             process.exit(1)
+//         }
+//     }
+//     start()
+// })
 
-const options = {
-    confKey: 'config',
-    schema,
-    dotenv: true,
-    data: process.env
-}
-
-const initialize = async () => {
-    fastify.register(fastifyEnv, options)
-    await fastify.after()
-
-    // Database
-    // Connection URL
-    const username = encodeURIComponent(fastify.config.MONGO_URL);
-}
-
-initialize()
-
+//db Connection
 fastify.register(require('./config/db'))
-// Declare a route
-fastify.register(require('./routes/index'));
 
+// Declare a route
+const mainRoutes = require('./routes/index');
+fastify.register(mainRoutes,{prefix: '/'})
 
 // Run the server!
-fastify.listen(3000, (err, address) => {
-    if (err) throw err
-})
+const PORT = process.env.PORT;
+
+const start = async () => {
+    try {
+        await fastify.listen({port: PORT})
+    } catch (err) {
+        fastify.log.error(err)
+        process.exit(1)
+    }
+}
+start()

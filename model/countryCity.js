@@ -1,11 +1,38 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const countrySchema = new Schema({
+const CountryCitySchema = new Schema({
     id: {
-       type:Number
+        type: Number
     },
     name: {
+        type: String
+    },
+    state_id: {
+        type: Number
+    },
+    state_code: {
+        type: String
+    },
+    state_name: {
+        type: String
+    },
+    country_id: {
+        type: Number
+    },
+    country_code: {
+        type: String
+    },
+    country_name: {
+        type: String
+    },
+    latitude: {
+        type: String
+    },
+    longitude: {
+        type: String
+    },
+    wikiDataId: {
         type: String
     },
     iso3: {
@@ -18,7 +45,7 @@ const countrySchema = new Schema({
         type: String
     },
     phone_code: {
-        type: String
+        type: Date
     },
     capital: {
         type: String
@@ -48,20 +75,18 @@ const countrySchema = new Schema({
         type: Array
     },
     translations: {
-        type:Object
-    },
-    latitude: {
-        type: String
-    },
-    longitude: {
-        type: String
+        type: Object
     },
     emoji: {
         type: String
     },
     emojiU: {
         type: String
+    },
+    cities: {
+        type: Array
     }
+
 });
 
-module.exports = mongoose.model('countries',countrySchema);
+module.exports = mongoose.model('countries-cities', CountryCitySchema);

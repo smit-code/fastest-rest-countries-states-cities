@@ -1,25 +1,24 @@
-const Country = require('../model/country');
+const CountryCity = require('../model/countryCity');
 const {helper} = require("../utils/findByNameHelper");
 
-exports.getCountries = async (request, replay) => {
+exports.getCountiesCities = async (request,replay) => {
     try {
-        const data = await Country.find();
+        const CountiesCities = await CountryCity.find();
         return replay.send({
-            result: data
+            result:CountiesCities
         });
     } catch (error) {
         return replay.send(error)
     }
 };
 
-exports.getCountry = async (request, replay) => {
+exports.getCountryCities = async (request,replay) => {
     try {
         const queryCountry = request.params.country;
 
         // for country wise states
-        let data = await helper(queryCountry,'country');
+        let data = await helper(queryCountry,'countryCity');
         return replay.send(data);
-
     } catch (error) {
         return replay.send(error)
     }
