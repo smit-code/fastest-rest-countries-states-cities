@@ -11,17 +11,17 @@ exports.helper = async (queryName, model) => {
     }
 
     const propertyName = words.join(" ");
-    const result = await model.findOne({name: propertyName});
+    const result = await model.find({name: propertyName});
 
-    if (!result) {
+    if (!result.length) {
         return {
-            success: false,
-            message: "No Data From This Input ! "
+            message: "No Data From This Input ! ",
+            statusCode:400
         };
     }
 
     return {
-        success: true,
-        result: result
+        result: result,
+        statusCode:200
     };
 }

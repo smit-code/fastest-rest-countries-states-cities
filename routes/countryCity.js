@@ -1,10 +1,14 @@
 const {getCountiesCities, getCountryCities} = require('../controllers/countryCityController');
-
+const errorHandler = require("../utils/errorHandler");
+const {schema} = require("../utils/responseSchema");
+const use = (fn) => (request, replay) => {
+    Promise.resolve(fn(request, replay)).catch(error => errorHandler(error,request,replay));
+}
 async function routes (fastify,option) {
 
-    fastify.get('/', getCountiesCities);
+    fastify.get('/', {schema}, use(getCountiesCities));
 
-    fastify.get('/:country', getCountryCities);
+    fastify.get('/:country', {schema}, use(getCountryCities));
 
 }
 

@@ -1,26 +1,24 @@
 const CountryStateCity = require('../model/countryStateCity');
-exports.getCountiesStatesCities = async (request,replay) => {
-    try {
-        const CountiesStatesCities = await CountryStateCity.find();
-        return replay.send({
-            result:CountiesStatesCities
-        });
-    } catch (error) {
-        return replay.send(error)
+exports.getCountiesStatesCities = async (request, replay) => {
+    const CountiesStatesCities = await CountryStateCity.find();
+    let statusCode = 200;
+    if (!CountiesStatesCities.length) {
+        statusCode = 400
     }
+    return replay.status(statusCode).send({
+        result: CountiesStatesCities
+    })
+
 };
 
-exports.getCountryStatesCities = async (request,replay) => {
-    try {
-        const queryCountry = request.params.country;
-        // for country wise City
-        const {helper} = require("../utils/findByNameHelper");
+exports.getCountryStatesCities = async (request, replay) => {
+    const queryCountry = request.params.country;
+    // for country wise City
+    const {helper} = require("../utils/findByNameHelper");
 
-        let data = await helper(queryCountry,CountryStateCity);
+    let result = await helper(queryCountry, CountryStateCity);
+    let statusCode = result.statusCode;
 
-        return replay.send(data);
+    return replay.status(statusCode).send(result);
 
-    } catch (error) {
-        return replay.send(error)
-    }
 };

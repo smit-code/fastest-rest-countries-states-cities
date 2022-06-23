@@ -3,7 +3,7 @@ const Fastify = require('fastify');
 const fastify = Fastify({
     logger: true
 });
-
+const PORT = process.env.PORT;
 // env configuration
 // const fastifyEnv = require('@fastify/env')
 // const schema = {
@@ -43,18 +43,16 @@ const fastify = Fastify({
 fastify.register(require('./config/db'))
 
 // Declare a route
-const mainRoutes = require('./routes/index');
-fastify.register(mainRoutes,{prefix: '/'})
+const {routes} = require('./routes/index');
+fastify.register(routes,{prefix: '/'})
+
+//error handler for url not found
+fastify.setErrorHandler(function (error, request, reply) {
+    // Log error
+    this.log.error(error)
+    // Send error response
+    reply.status(404).send({ success: false,message:"requested API not valid !" })
+})
 
 // Run the server!
-const PORT = process.env.PORT;
-
-const start = async () => {
-    try {
-        await fastify.listen({port: PORT})
-    } catch (err) {
-        fastify.log.error(err)
-        process.exit(1)
-    }
-}
-start()
+fastify.listen({ port: PORT })
