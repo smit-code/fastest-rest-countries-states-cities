@@ -6,7 +6,7 @@ const countryCityRoutes = require('./countryCity');
 const statesCityRoutes = require('./statecCity');
 const countryStateCityRoutes = require('./countryStateCity');
 
-async function routes(fastify, option) {
+exports.routes = async (fastify, option) =>  {
 
     fastify.register(countryRoutes, {
         prefix: '/countries'
@@ -31,5 +31,3 @@ async function routes(fastify, option) {
     });
 
 }
-
-module.exports = routes;
