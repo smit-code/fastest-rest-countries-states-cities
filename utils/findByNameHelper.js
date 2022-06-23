@@ -1,7 +1,4 @@
 exports.helper = async (queryName, model) => {
-
-    // let dbName = require(`../model/${modelName}`);
-
     // for country wise City
     const replaceWords = queryName.replace(/ /g, '%');
     const words = replaceWords.split("%");
@@ -12,7 +9,6 @@ exports.helper = async (queryName, model) => {
 
     const propertyName = words.join(" ");
     const result = await model.find({name: propertyName});
-
     if (!result.length) {
         return {
             message: "No Data From This Input ! ",

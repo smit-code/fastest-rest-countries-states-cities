@@ -1,4 +1,10 @@
 exports.schema = {
+    params: {
+        type: 'object',
+        properties: {
+            name: { type: 'string' }
+        }
+    },
     response: {
         200: {
             type: 'object',
