@@ -14,7 +14,7 @@ exports.getCountiesCities = async (request, replay) => {
 };
 
 exports.getCountryCities = async (request, replay) => {
-    const queryCountry = request.params.country;
+    const queryCountry = request.params.name;
 
     // for country wise states
     let result = await helper(queryCountry, CountryCity);

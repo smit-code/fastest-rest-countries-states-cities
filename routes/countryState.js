@@ -8,7 +8,7 @@ async function routes (fastify,option) {
 
     fastify.get('/', {schema}, use(getCountiesStates));
 
-    fastify.get('/:country', {schema}, use(getCountryStates));
+    fastify.get('/:name', {schema}, use(getCountryStates));
 
 }
 
