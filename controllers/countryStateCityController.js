@@ -12,7 +12,7 @@ exports.getCountiesStatesCities = async (request, replay) => {
 };
 
 exports.getCountryStatesCities = async (request, replay) => {
-    const queryCountry = request.params.name;
+    const queryCountry = request.params.country;
     // for country wise City
     const {helper} = require("../utils/findByNameHelper");
 
