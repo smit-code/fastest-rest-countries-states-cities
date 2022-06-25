@@ -4,6 +4,8 @@ const fastify = Fastify({
     logger: true
 });
 const PORT = process.env.PORT;
+const swagger = require("./utils/swagger");
+
 // env configuration
 // const fastifyEnv = require('@fastify/env')
 // const schema = {
@@ -39,8 +41,27 @@ const PORT = process.env.PORT;
 //     start()
 // })
 
+// fastify.register(require('@fastify/cors'), function (instance) {
+//     return (req, callback) => {
+//         // let corsOptions;
+//         // const origin = req.headers.origin
+//         // console.log("this is origin",origin);
+//         // do not include CORS headers for requests from localhost
+//         // const hostname = new URL(origin).hostname
+//         // if (hostname === "localhost") {
+//         //     corsOptions = {origin: false}
+//         // } else {
+//         //     corsOptions = {origin: true}
+//         // }
+//         callback(null, {origin: "*"}) // callback expects two parameters: error and options
+//     }
+// })
+
 //db Connection
-fastify.register(require('./config/db'))
+fastify.register(require('./config/db'));
+
+//fastify swagger
+fastify.register(require('@fastify/swagger'),swagger.options);
 
 // Declare a route
 const {routes} = require('./routes/index');
