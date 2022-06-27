@@ -8,6 +8,9 @@
     "dev": "nodemon app.js",
     "start": "node app.js"
   },
+  "engines": {
+    "node": "16.15.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/smit-code/csc-countries-states-cities.git"
