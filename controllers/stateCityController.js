@@ -13,7 +13,7 @@ exports.getStatesCities = async (request, replay) => {
 };
 
 exports.getStateCities = async (request, replay) => {
-    const queryState = request.params.name;
+    const queryState = request.params.state;
     // for country wise states
     let result = await helper(queryState, StateCity);
     let statusCode = result.statusCode;

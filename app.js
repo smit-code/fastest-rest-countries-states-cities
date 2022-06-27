@@ -41,21 +41,22 @@ const swagger = require("./utils/swagger");
 //     start()
 // })
 
-// fastify.register(require('@fastify/cors'), function (instance) {
-//     return (req, callback) => {
-//         // let corsOptions;
-//         // const origin = req.headers.origin
-//         // console.log("this is origin",origin);
-//         // do not include CORS headers for requests from localhost
-//         // const hostname = new URL(origin).hostname
-//         // if (hostname === "localhost") {
-//         //     corsOptions = {origin: false}
-//         // } else {
-//         //     corsOptions = {origin: true}
-//         // }
-//         callback(null, {origin: "*"}) // callback expects two parameters: error and options
-//     }
-// })
+fastify.register(require('@fastify/cors'), function (instance) {
+    return (req, callback) => {
+        let corsOptions;
+        // const origin = req.headers.host
+        // console.log("this is origin",origin);
+        // do not include CORS headers for requests from localhost
+        const hostname = req.headers.host;
+        console.log(hostname);
+        if (hostname === "localhost" && hostname === "127.0.0.1:3000") {
+            corsOptions = {origin: false}
+        } else {
+            corsOptions = {origin: true}
+        }
+        callback(null, corsOptions) // callback expects two parameters: error and options
+    }
+})
 
 //db Connection
 fastify.register(require('./config/db'));
