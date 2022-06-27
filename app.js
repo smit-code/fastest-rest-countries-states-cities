@@ -77,4 +77,13 @@ fastify.setErrorHandler(function (error, request, reply) {
 })
 
 // Run the server!
-fastify.listen({ port: PORT })
+fastify.listen({ port: PORT }, function (err, address) {
+    if (err) {
+        fastify.log.error(err)
+        process.exit(1)
+    }
+    // Server is now listening on ${address}
+})
+
+// Run the server!
+// fastify.listen({ port: PORT })
