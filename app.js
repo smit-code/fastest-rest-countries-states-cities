@@ -3,7 +3,7 @@ const Fastify = require('fastify');
 const fastify = Fastify({
     logger: true
 });
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 const {swaggerOptions} = require("./utils/swagger");
 const swagger = require("@fastify/swagger");
 

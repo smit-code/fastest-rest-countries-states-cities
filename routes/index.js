@@ -27,9 +27,11 @@ exports.routes = async (fastify, option) =>  {
     fastify.register(countryCityRoutes, {
         prefix: '/countries-cities'
     });
+
     fastify.register(statesCityRoutes, {
         prefix: '/states-cities'
     });
+
     fastify.register(countryStateCityRoutes, {
         prefix: '/countries-states-cities'
     });
