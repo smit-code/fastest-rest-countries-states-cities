@@ -31,10 +31,12 @@ exports.primarySchema = () => {
 
 exports.secondarySchema = (name) => {
     const names = {};
-    names[name] = {type: 'string'};
+    names[name] = {
+        type: ['string']
+    };
     schema['params'] = {
         type: 'object',
-        properties:names
+        properties: names
     }
     return schema;
 }

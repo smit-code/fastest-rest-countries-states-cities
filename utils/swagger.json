@@ -1,0 +1,800 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": " Fastest Api for Countries, States, Cities",
+    "description": "Get Fastest Response from Our Api...",
+    "contact": {
+      "email": "axitvadi@gmail.com"
+    },
+    "version": "0.1.0"
+  },
+  "definitions": {},
+  "tags": [
+    {
+      "name": "Countries",
+      "description": "Data of countries in the fastest time possible !"
+    },
+    {
+      "name": "States",
+      "description": "Data of states in the fastest time possible !"
+    },
+    {
+      "name": "Countries And Their States",
+      "description": "Data for countries and all their states in the fastest time possible !"
+    },
+    {
+      "name": "Countries And Their Cities",
+      "description": "Data for countries and all their cities in the fastest time possible !"
+    },
+    {
+      "name": "States And Their Cities",
+      "description": "Data for states and all their cities in the fastest time possible !"
+    },
+    {
+      "name": "Countries And Their States And Cities",
+      "description": "Data for states and all their cities in the fastest time possible !"
+    },
+      {
+          "name": "Cities",
+          "description": "Data for cities in the fastest time possible !"
+      }
+  ],
+  "paths": {
+    "/countries": {
+      "get": {
+        "tags": [
+          "Countries"
+        ],
+        "summary": "The data of all the countries in the world !",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries/{country}": {
+      "get": {
+        "tags": [
+          "Countries"
+        ],
+        "summary": "Get Data of the all the country !",
+        "parameters": [
+          {
+            "type": "string",
+            "required": true,
+            "in": "path",
+            "name": "country"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/states": {
+      "get": {
+        "tags": [
+          "States"
+        ],
+        "summary": "The data of all the States in the world !",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/states/{state}": {
+      "get": {
+        "tags": [
+          "States"
+        ],
+        "summary": "Get Data of the state !",
+        "parameters": [
+          {
+            "type": "string",
+            "required": true,
+            "in": "path",
+            "name": "state"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities": {
+      "get": {
+        "tags": [
+          "Cities"
+        ],
+        "summary": "The data of all the Cities in the world !",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cities/{city}": {
+      "get": {
+        "tags": [
+          "Cities"
+        ],
+        "summary": "Get the data of the city!",
+        "parameters": [
+          {
+            "type": "string",
+            "required": true,
+            "in": "path",
+            "name": "city"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries-states": {
+      "get": {
+        "tags": [
+          "Countries And Their States"
+        ],
+        "summary": "The data of all the Countries and their states in the world !",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries-states/{country}": {
+      "get": {
+        "tags": [
+          "Countries And Their States"
+        ],
+        "summary": "The data for the country, including all its states!",
+        "parameters": [
+          {
+            "type": "string",
+            "required": true,
+            "in": "path",
+            "name": "country"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries-cities": {
+      "get": {
+        "tags": [
+          "Countries And Their Cities"
+        ],
+        "summary": "The data of all the Countries and their cities in the world !",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries-cities/{country}": {
+      "get": {
+        "tags": [
+          "Countries And Their Cities"
+        ],
+        "summary": "The data for the country, including all its Cities!",
+        "parameters": [
+          {
+            "type": "string",
+            "required": true,
+            "in": "path",
+            "name": "country"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/states-cities": {
+      "get": {
+        "tags": [
+          "States And Their Cities"
+        ],
+        "summary": "The data of all the states and their cities in the world !",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/states-cities/{state}": {
+      "get": {
+        "tags": [
+          "States And Their Cities"
+        ],
+        "summary": "The data for the states, including all its Cities!",
+        "parameters": [
+          {
+            "type": "string",
+            "required": true,
+            "in": "path",
+            "name": "state"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries-states-cities": {
+      "get": {
+        "tags": [
+          "Countries And Their States And Cities"
+        ],
+        "summary": "The data of all the Countries and their states And Cities in the world !",
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/countries-states-cities/{country}": {
+      "get": {
+        "tags": [
+          "Countries And Their States And Cities"
+        ],
+        "summary": "The data for the country, including all its states And Cities!",
+        "parameters": [
+          {
+            "type": "string",
+            "required": true,
+            "in": "path",
+            "name": "country"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "result"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "result": {
+                  "type": "array",
+                  "items": {}
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Default Response",
+            "schema": {
+              "type": "object",
+              "required": [
+                "success",
+                "message"
+              ],
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "default": false
+                },
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "host": "127.0.0.1:3000",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "externalDocs": {
+    "url": "https://swagger.io",
+    "description": "Find more info here"
+  }
+}

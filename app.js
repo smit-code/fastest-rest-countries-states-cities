@@ -4,7 +4,8 @@ const fastify = Fastify({
     logger: true
 });
 const PORT = process.env.PORT;
-const swagger = require("./utils/swagger");
+const {swaggerOptions} = require("./utils/swagger");
+const swagger = require("@fastify/swagger");
 
 // env configuration
 // const fastifyEnv = require('@fastify/env')
@@ -48,7 +49,6 @@ fastify.register(require('@fastify/cors'), function (instance) {
         // console.log("this is origin",origin);
         // do not include CORS headers for requests from localhost
         const hostname = req.headers.host;
-        console.log(hostname);
         if (hostname === "localhost" && hostname === "127.0.0.1:3000") {
             corsOptions = {origin: false}
         } else {
@@ -62,7 +62,7 @@ fastify.register(require('@fastify/cors'), function (instance) {
 fastify.register(require('./config/db'));
 
 //fastify swagger
-fastify.register(require('@fastify/swagger'),swagger.options);
+fastify.register(swagger,swaggerOptions);
 
 // Declare a route
 const {routes} = require('./routes/index');

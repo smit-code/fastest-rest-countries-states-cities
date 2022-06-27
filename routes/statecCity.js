@@ -1,15 +1,14 @@
 const {getStatesCities, getStateCities} = require('../controllers/stateCityController');
 const errorHandler = require("../utils/errorHandler");
-const globalSchema = require("../utils/responseSchema");
+const{primarySchema,secondarySchema} = require("../utils/responseSchema");
 const use = (fn) => (request, replay) => {
     Promise.resolve(fn(request, replay)).catch(error => errorHandler(error, request, replay));
 }
 
 async function routes(fastify, option) {
-    const schema = globalSchema.schema('state');
-    fastify.get('/', {schema}, use(getStatesCities));
+    fastify.get('/', {schema:primarySchema()}, use(getStatesCities));
 
-    fastify.get('/:state', {schema}, use(getStateCities));
+    fastify.get('/:state', {schema:secondarySchema('state')}, use(getStateCities));
 }
 
 module.exports = routes;

@@ -2,23 +2,14 @@ const Country = require('../model/country');
 const {helper} = require("../utils/findByNameHelper");
 
 exports.getCountries = async (request, replay) => {
-    const queryCountry = request.params.country;
-
-    if (queryCountry){
-        const countries = await Country.find();
-        let statusCode = 200;
-        if (!countries.length){
-            statusCode = 400
-        }
-        return replay.status(statusCode).send({
-            result: countries
-        })
+    const countries = await Country.find();
+    let statusCode = 200;
+    if (!countries.length) {
+        statusCode = 400
     }
-
-    let result = await helper(queryCountry, Country);
-    let statusCode = result.statusCode;
-
-    return replay.status(statusCode).send(result);
+    return replay.status(statusCode).send({
+        result: countries
+    })
 };
 
 exports.getCountry = async (request, replay) => {
