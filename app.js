@@ -3,7 +3,6 @@ const Fastify = require('fastify');
 const fastify = Fastify({
     logger: true
 });
-const PORT = process.env.PORT || 3000;
 const {swaggerOptions} = require("./utils/swagger");
 const swagger = require("@fastify/swagger");
 
@@ -77,7 +76,12 @@ fastify.setErrorHandler(function (error, request, reply) {
 })
 
 // Run the server!
-fastify.listen(PORT, process.env.HOST || '::', err => {
-    if (err) throw err
-    console.log(`server listening on ${fastify.server.address().port}`)
-})
+const ADDRESS = "0.0.0.0";
+const PORT = process.env.PORT || 3000;
+
+fastify.listen(PORT, ADDRESS, (err, address) => {
+    if (err) {
+        console.log(err);
+        process.exit(1);
+    }
+});
