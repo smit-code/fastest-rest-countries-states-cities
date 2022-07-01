@@ -77,4 +77,7 @@ fastify.setErrorHandler(function (error, request, reply) {
 })
 
 // Run the server!
-fastify.listen(PORT,'0.0.0.0');
+fastify.listen(PORT, process.env.HOST || '::', err => {
+    if (err) throw err
+    console.log(`server listening on ${fastify.server.address().port}`)
+})
