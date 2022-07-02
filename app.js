@@ -5,6 +5,7 @@ const fastify = Fastify({
 });
 const {swaggerOptions} = require("./utils/swagger");
 const swagger = require("@fastify/swagger");
+const port = process.env.PORT || 3000;
 
 //db Connection
 fastify.register(require('./config/db'));
@@ -29,7 +30,7 @@ fastify.setErrorHandler(function (error, request, reply) {
 
 const start = async () => {
     try {
-        await fastify.listen({ port: process.env.PORT })
+        await fastify.listen({port})
     } catch (err) {
         fastify.log.error(err)
         process.exit(1)
