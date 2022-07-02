@@ -25,4 +25,14 @@ fastify.setErrorHandler(function (error, request, reply) {
 })
 
 // Run the server!
-fastify.listen(process.env.PORT);
+// fastify.listen(process.env.PORT);
+
+const start = async () => {
+    try {
+        await fastify.listen({ port: process.env.PORT })
+    } catch (err) {
+        fastify.log.error(err)
+        process.exit(1)
+    }
+}
+start();
