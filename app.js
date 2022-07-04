@@ -10,7 +10,7 @@ const swagger = require("@fastify/swagger");
 fastify.register(require('./config/db'));
 
 //fastify swagger
-fastify.register(swagger,swaggerOptions);
+// fastify.register(swagger,swaggerOptions);
 
 // Declare a route
 const {routes} = require('./routes/index');
