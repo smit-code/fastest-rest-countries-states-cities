@@ -11,7 +11,7 @@ const port = process.env.PORT || 3000;
 fastify.register(require('./config/db'));
 
 //fastify swagger
-// fastify.register(swagger,swaggerOptions);
+fastify.register(swagger,swaggerOptions);
 
 // Declare a route
 const {routes} = require('./routes/index');
@@ -28,12 +28,9 @@ fastify.setErrorHandler(function (error, request, reply) {
 // Run the server!
 // fastify.listen(process.env.PORT);
 
-const start = async () => {
-    try {
-        await fastify.listen({port})
-    } catch (err) {
-        fastify.log.error(err)
-        process.exit(1)
+fastify.listen({ port: 3000, host: '127.0.0.1' }, (err, address) => {
+    if (err) {
+        fastify.log.error(err);
+        process.exit(1);
     }
-}
-start();
+})
