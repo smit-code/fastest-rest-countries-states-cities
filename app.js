@@ -28,7 +28,7 @@ fastify.setErrorHandler(function (error, request, reply) {
 // Run the server!
 // fastify.listen(process.env.PORT);
 
-fastify.listen({ port: 3000, host: '127.0.0.1' }, (err, address) => {
+fastify.listen({ port, host: '0.0.0.0' }, (err, address) => {
     if (err) {
         fastify.log.error(err);
         process.exit(1);
