@@ -2,13 +2,13 @@ const CountryStates = require('../model/countryState');
 const {helper} = require("../utils/findByNameHelper");
 
 exports.getCountiesStates = async (request, replay) => {
-    const CountiesStates = await CountryStates.find();
+    const countiesStates = await CountryStates.find();
     let statusCode = 200;
-    if (!CountiesStates.length) {
+    if (!countiesStates.length) {
         statusCode = 400
     }
     return replay.status(statusCode).send({
-        result: CountiesStates
+        result: countiesStates
     })
 
 };

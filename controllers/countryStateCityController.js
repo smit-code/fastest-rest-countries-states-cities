@@ -1,12 +1,12 @@
 const CountryStateCity = require('../model/countryStateCity');
 exports.getCountiesStatesCities = async (request, replay) => {
-    const CountiesStatesCities = await CountryStateCity.find();
+    const countiesStatesCities = await CountryStateCity.find();
     let statusCode = 200;
-    if (!CountiesStatesCities.length) {
+    if (!countiesStatesCities.length) {
         statusCode = 400
     }
     return replay.status(statusCode).send({
-        result: CountiesStatesCities
+        result: countiesStatesCities
     })
 
 };
