@@ -33,5 +33,5 @@ We provide a free database of city, state, and country data in JSON format. All 
 
 **Free Software, Hell Yeah!**
 
-  [node.js]: <http://nodejs.org>
-  [express]: <http://expressjs.com>
+  [node.js]: <https://nodejs.org>
+  [fastify]: <https://www.fastify.io/>
