@@ -21,7 +21,7 @@ We provide a free database of city, state, and country data in JSON format. All 
 ## Tech
 
 - [Node.js] - evented I/O for the backend
-- [Express] - fast node.js network app framework
+- [fastify] - fast node.js network app framework
 
 ---
 
