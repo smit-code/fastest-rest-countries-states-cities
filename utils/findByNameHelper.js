@@ -1,6 +1,6 @@
 exports.helper = async (queryName, model) => {
     // for country wise City
-    const replaceWords = queryName.replace(/ /g, '%');
+    const replaceWords = queryName.trim().replace(/ /g, '%');
     const words = replaceWords.split("%");
 
     for (let i = 0; i < words.length; i++) {
@@ -8,7 +8,7 @@ exports.helper = async (queryName, model) => {
     }
 
     const propertyName = words.join(" ");
-    const result = await model.find({name: propertyName});
+    const result = await model.find({name:  { $regex: propertyName, $options: 'i' } });
     if (!result.length) {
         return {
             message: "No Data From This Input ! ",
