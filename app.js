@@ -9,7 +9,7 @@ const swagger = require("@fastify/swagger");
 const port = process.env.PORT || 3000;
 
 fastify.register(cors,{
-    origin:false
+    origin:true
 })
 
 //db Connection
